@@ -6,6 +6,7 @@
   <meta name="theme-color" content="#f4f6f9">
   <title>Синий кит — конференц-зал</title>
   <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/fancoil-layout.css">
 </head>
 <body>
   <div class="app-shell">
@@ -135,7 +136,7 @@
             </div>
           </div>
 
-          <button class="fan-layout-action" type="button" aria-label="Открыть управление фанкойлами по залу">
+          <button class="fan-layout-action" type="button" data-fancoil-layout-open aria-label="Открыть управление фанкойлами по залу">
             <span>Управление по залу</span>
             <span aria-hidden="true">→</span>
           </button>
@@ -215,7 +216,50 @@
         </article>
       </section>
     </main>
+
+    <section class="fan-layout-screen" data-fancoil-layout-screen hidden aria-labelledby="fan-layout-title">
+      <header class="fan-layout-header">
+        <button class="fan-layout-back" type="button" data-fancoil-layout-close aria-label="Вернуться на главный экран">←</button>
+        <div>
+          <p class="eyebrow">Индивидуальное управление</p>
+          <h2 id="fan-layout-title">Фанкойлы по залу</h2>
+        </div>
+        <div class="fan-layout-count">Включено <strong data-fancoil-layout-count>7 из 7</strong></div>
+      </header>
+
+      <div class="fan-layout-map" aria-label="План помещения с семью фанкойлами">
+        <button class="fancoil-node fancoil-node--1 is-on" type="button" data-fancoil-node="1" aria-pressed="true" aria-label="Фанкойл 1, включен">
+          <img src="images/vent-mid.svg" alt="" aria-hidden="true">
+          <span>1</span>
+        </button>
+        <button class="fancoil-node fancoil-node--2 is-on" type="button" data-fancoil-node="2" aria-pressed="true" aria-label="Фанкойл 2, включен">
+          <img src="images/vent-mid.svg" alt="" aria-hidden="true">
+          <span>2</span>
+        </button>
+        <button class="fancoil-node fancoil-node--3 is-on" type="button" data-fancoil-node="3" aria-pressed="true" aria-label="Фанкойл 3, включен">
+          <img src="images/vent-mid.svg" alt="" aria-hidden="true">
+          <span>3</span>
+        </button>
+        <button class="fancoil-node fancoil-node--4 is-on" type="button" data-fancoil-node="4" aria-pressed="true" aria-label="Фанкойл 4, включен">
+          <img src="images/vent-mid.svg" alt="" aria-hidden="true">
+          <span>4</span>
+        </button>
+        <button class="fancoil-node fancoil-node--5 is-on" type="button" data-fancoil-node="5" aria-pressed="true" aria-label="Фанкойл 5, включен">
+          <img src="images/vent-mid.svg" alt="" aria-hidden="true">
+          <span>5</span>
+        </button>
+        <button class="fancoil-node fancoil-node--6 is-on" type="button" data-fancoil-node="6" aria-pressed="true" aria-label="Фанкойл 6, включен">
+          <img src="images/vent-mid.svg" alt="" aria-hidden="true">
+          <span>6</span>
+        </button>
+        <button class="fancoil-node fancoil-node--7 is-on" type="button" data-fancoil-node="7" aria-pressed="true" aria-label="Фанкойл 7, включен">
+          <img src="images/vent-mid.svg" alt="" aria-hidden="true">
+          <span>7</span>
+        </button>
+      </div>
+    </section>
   </div>
   <script src="js/app.js" defer></script>
+  <script src="js/fancoil-layout.js" defer></script>
 </body>
 </html>
