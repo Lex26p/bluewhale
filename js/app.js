@@ -186,3 +186,64 @@
 
   renderWheel();
 })();
+
+
+(() => {
+  "use strict";
+
+  const powerButton = document.querySelector("[data-fancoil-power]");
+  const powerIcon = document.querySelector("[data-fancoil-power-icon]");
+  const speedGroup = document.querySelector("[data-fancoil-speed]");
+  const factual = document.querySelector("[data-fancoil-fact]");
+  const enabledCountOutput = document.querySelector("[data-fancoil-count]");
+
+  if (!powerButton || !powerIcon || !speedGroup || !factual || !enabledCountOutput) {
+    return;
+  }
+
+  // WEB-04 demo only. Real WB/MQTT commands are intentionally deferred.
+  const TOTAL_FAN_COILS = 7;
+  let powered = true;
+  let selectedSpeed = "auto";
+  let factualSpeed = "2";
+  const speedButtons = Array.from(speedGroup.querySelectorAll("[data-value]"));
+
+  function render() {
+    powerButton.setAttribute("aria-pressed", String(powered));
+    powerButton.setAttribute("aria-label", powered ? "Выключить фанкойлы" : "Включить фанкойлы");
+    powerIcon.src = powered ? "images/TumblerOn.svg" : "images/TumblerOff.svg";
+
+    factual.textContent = powered ? factualSpeed : "—";
+    enabledCountOutput.textContent = `${powered ? TOTAL_FAN_COILS : 0} из ${TOTAL_FAN_COILS}`;
+    factual.parentElement?.classList.toggle("is-off", !powered);
+
+    for (const button of speedButtons) {
+      const active = button.dataset.value === selectedSpeed;
+      button.classList.toggle("is-active", active);
+      button.setAttribute("aria-pressed", String(active));
+      button.disabled = !powered;
+    }
+  }
+
+  powerButton.addEventListener("click", () => {
+    powered = !powered;
+    render();
+  });
+
+  speedGroup.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-value]");
+    if (!button || !speedGroup.contains(button) || !powered) {
+      return;
+    }
+
+    selectedSpeed = button.dataset.value;
+    if (selectedSpeed !== "auto") {
+      factualSpeed = selectedSpeed;
+    } else {
+      factualSpeed = "2";
+    }
+    render();
+  });
+
+  render();
+})();

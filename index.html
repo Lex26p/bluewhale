@@ -100,28 +100,45 @@
       </section>
 
       <section class="systems-grid" aria-label="Инженерные системы">
-        <article class="card system-card">
-          <div class="system-card__top">
-            <div class="icon-badge" aria-hidden="true">
-              <svg viewBox="0 0 24 24">
-                <path d="M12 4.2c1.9 0 3.3 1.6 3.3 3.5 0 .8-.3 1.6-.8 2.2 2.2-.2 4.3 1.1 5.1 3.2.6 1.8-.4 3.8-2.2 4.4-.8.3-1.6.2-2.3-.1.7 2.1-.2 4.5-2.1 5.5-1.7.8-3.8.1-4.6-1.6-.4-.8-.4-1.6-.2-2.4-1.7 1.4-4.3 1.4-5.9-.1-1.4-1.3-1.4-3.5-.1-4.9.6-.6 1.3-.9 2.1-1-1.9-1.2-2.8-3.6-1.8-5.6.8-1.7 2.9-2.4 4.6-1.5.8.4 1.3 1 1.7 1.7.2-2 1.5-3.3 3.2-3.3Z" fill="none" stroke="currentColor" stroke-width="1.55" stroke-linejoin="round"/>
-                <circle cx="12" cy="12" r="1.6" fill="currentColor"/>
-              </svg>
+        <article class="card system-card fan-coil-card" aria-labelledby="fan-coil-title">
+          <div class="fan-coil-head">
+            <div>
+              <p class="eyebrow">Общее управление</p>
+              <h2 id="fan-coil-title">Фанкойлы</h2>
             </div>
-            <div class="state-chip state-chip--active">Включены</div>
+            <button class="fan-power-toggle" type="button" data-fancoil-power aria-label="Выключить фанкойлы" aria-pressed="true">
+              <img src="images/TumblerOn.svg" alt="" aria-hidden="true" data-fancoil-power-icon>
+            </button>
           </div>
-          <div class="system-card__content">
-            <p class="eyebrow">Общее управление</p>
-            <h2>Фанкойлы</h2>
-            <div class="summary-line">
-              <strong>AUTO</strong>
-              <span>2 скорость</span>
+
+          <div class="fan-coil-fact" aria-live="polite">
+            <span>Включено <strong data-fancoil-count>7 из 7</strong></span>
+            <span class="fan-coil-fact__divider" aria-hidden="true">·</span>
+            <span>Факт. скорость <strong data-fancoil-fact>2</strong></span>
+          </div>
+
+          <div class="fan-control-group fan-control-group--speed">
+            <div class="fan-control-label">Уставка скорости</div>
+            <div class="fan-control-row" role="group" aria-label="Скорость фанкойлов" data-fancoil-speed>
+              <button class="fan-control-button" type="button" data-value="1" aria-label="Скорость 1" aria-pressed="false">
+                <img src="images/vent-low.svg" alt="" aria-hidden="true">
+              </button>
+              <button class="fan-control-button" type="button" data-value="2" aria-label="Скорость 2" aria-pressed="false">
+                <img src="images/vent-mid.svg" alt="" aria-hidden="true">
+              </button>
+              <button class="fan-control-button" type="button" data-value="3" aria-label="Скорость 3" aria-pressed="false">
+                <img src="images/vent-max.svg" alt="" aria-hidden="true">
+              </button>
+              <button class="fan-control-button is-active" type="button" data-value="auto" aria-label="Автоматическая скорость" aria-pressed="true">
+                <img src="images/AUT.svg" alt="" aria-hidden="true">
+              </button>
             </div>
           </div>
-          <div class="system-card__footer">
-            <span>7 фанкойлов</span>
-            <span class="footer-arrow" aria-hidden="true">→</span>
-          </div>
+
+          <button class="fan-layout-action" type="button" aria-label="Открыть управление фанкойлами по залу">
+            <span>Управление по залу</span>
+            <span aria-hidden="true">→</span>
+          </button>
         </article>
 
         <article class="card system-card">

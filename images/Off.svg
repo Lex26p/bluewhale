@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="50"
+   height="50"
+   viewBox="0 0 50 50"
+   fill="none"
+   version="1.1"
+   id="svg46"
+   sodipodi:docname="Off.svg"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview48"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="true"
+     inkscape:zoom="16"
+     inkscape:cx="17.125"
+     inkscape:cy="31.5625"
+     inkscape:window-width="3584"
+     inkscape:window-height="1906"
+     inkscape:window-x="-12"
+     inkscape:window-y="-12"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg46">
+    <inkscape:grid
+       type="xygrid"
+       id="grid335" />
+  </sodipodi:namedview>
+  <g
+     id="g357">
+    <path
+       d="m 28.212447,5.7198916 c 0,-1.7751857 -1.439035,-3.2142857 -3.214285,-3.2142857 -1.77525,0 -3.214286,1.4391 -3.214286,3.2142857 V 25.005606 c 0,1.77525 1.439036,3.214286 3.214286,3.214286 1.77525,0 3.214285,-1.439036 3.214285,-3.214286 z"
+       fill="#ffffff"
+       id="path8"
+       style="fill:#000000;stroke-width:3.21429"
+       clip-path="url(#clipPath349)" />
+    <path
+       d="M 13.018197,14.29207 C 14.202019,12.969392 14.089519,10.937288 12.76684,9.7534023 11.444162,8.5694844 9.4120902,8.6820487 8.2282688,10.004824 4.6671617,13.983499 2.4981617,19.244963 2.4981617,25.005606 c 0,12.426428 10.0735713,22.5 22.5000003,22.5 12.426428,0 22.499999,-10.073572 22.499999,-22.5 0,-5.760643 -2.168999,-11.022107 -5.730107,-15.000782 -1.183821,-1.3227753 -3.215892,-1.4353396 -4.538571,-0.2514217 -1.322679,1.1838857 -1.435179,3.2159897 -0.251357,4.5386677 2.546678,2.845607 4.091464,6.595393 4.091464,10.713536 0,8.875928 -7.1955,16.071428 -16.071428,16.071428 -8.875929,0 -16.0714289,-7.1955 -16.0714289,-16.071428 0,-4.118143 1.5447859,-7.867929 4.0914639,-10.713536 z"
+       fill="#ffffff"
+       id="path10"
+       style="fill:#000000;stroke-width:3.21429"
+       clip-path="url(#clipPath343)" />
+  </g>
+  
+</svg>
