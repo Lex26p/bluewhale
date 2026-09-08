@@ -139,7 +139,8 @@ docs/PROJECT_STATE.md
 - placeholder ventilation block;
 - placeholder airing block;
 - placeholder lighting block;
-- responsive base для iPad landscape и desktop.
+- фиксированный tablet canvas `1024×768` для iPad landscape;
+- центрированное отображение этого же canvas на больших desktop-экранах без fluid-растяжения.
 
 ### Не включать
 
@@ -152,7 +153,8 @@ docs/PROJECT_STATE.md
 ### PASS
 
 - страница открывается локально;
-- layout корректен на desktop browser;
+- layout рассчитан на tablet canvas `1024×768`;
+- на большом desktop-экране интерфейс не растягивается и не «плывёт», а сохраняет планшетные размеры;
 - layout пригоден для iPad landscape;
 - нет обязательного hover UX;
 - пользователь принимает общую геометрию и визуальное направление.
