@@ -457,11 +457,8 @@
     timeLabel.textContent = active ? "Осталось" : "Время проветривания";
     timeOutput.textContent = formatTime(remainingSeconds());
 
-    const timeControlsEnabled = active;
-    card.classList.toggle("is-time-locked", !timeControlsEnabled);
-    timeOutput.setAttribute("aria-disabled", String(!timeControlsEnabled));
-    minusButton.disabled = !timeControlsEnabled || durationMinutes <= MIN_MINUTES;
-    plusButton.disabled = !timeControlsEnabled || durationMinutes >= MAX_MINUTES;
+    minusButton.disabled = durationMinutes <= MIN_MINUTES;
+    plusButton.disabled = durationMinutes >= MAX_MINUTES;
   }
 
   function dispatch(name) {

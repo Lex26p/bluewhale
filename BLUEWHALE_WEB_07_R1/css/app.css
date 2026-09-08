@@ -825,7 +825,6 @@ h2 {
   font-size: 30px;
   font-weight: 350;
   line-height: 1;
-  transform: translateY(-2px);
   appearance: none;
   -webkit-appearance: none;
   -webkit-tap-highlight-color: transparent;
@@ -849,22 +848,6 @@ h2 {
   line-height: 1;
   letter-spacing: -0.035em;
   font-variant-numeric: tabular-nums;
-}
-
-
-.airing-card.is-time-locked .airing-time-label,
-.airing-card.is-time-locked .airing-time-control {
-  opacity: 0.38;
-}
-
-.airing-card.is-time-locked .airing-time-control {
-  background: #f5f6f8;
-}
-
-.airing-card.is-time-locked .airing-time-control button,
-.airing-card.is-time-locked .airing-time-control output {
-  color: #8c929c;
-  background: #f5f6f8;
 }
 
 .airing-effect {
