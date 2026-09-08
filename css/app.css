@@ -475,10 +475,158 @@ h2 {
   line-height: 1;
 }
 
-.lighting-card .icon-badge,
-.lighting-card .source-chip {
-  color: #163f37;
-  background: var(--accent);
+/* WEB-08: general lighting controls. */
+.lighting-card {
+  padding: 24px;
+}
+
+.lighting-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.lighting-power-toggle {
+  flex: 0 0 auto;
+  width: 54px;
+  height: 29px;
+  margin-top: 2px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  appearance: none;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.lighting-power-toggle img {
+  display: block;
+  width: 54px;
+  height: 29px;
+  pointer-events: none;
+}
+
+.lighting-control-group {
+  margin-top: 17px;
+}
+
+.lighting-control-label {
+  min-height: 18px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  color: #707682;
+  font-size: 11px;
+  font-weight: 650;
+}
+
+.lighting-control-label output {
+  color: var(--accent-deep);
+  font-size: 12px;
+  font-weight: 750;
+  white-space: nowrap;
+}
+
+.lighting-range {
+  width: 100%;
+  height: 36px;
+  display: block;
+  margin: 4px 0 0;
+  padding: 0;
+  background: transparent;
+  appearance: none;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.lighting-range::-webkit-slider-runnable-track {
+  height: 8px;
+  border-radius: 999px;
+  background: var(--lighting-track);
+}
+
+.lighting-range::-webkit-slider-thumb {
+  width: 32px;
+  height: 32px;
+  margin-top: -12px;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  background: var(--accent-deep);
+  box-shadow: 0 2px 7px rgba(31, 42, 68, 0.22);
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.lighting-range::-moz-range-track {
+  height: 8px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--lighting-track);
+}
+
+.lighting-range::-moz-range-thumb {
+  width: 26px;
+  height: 26px;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  background: var(--accent-deep);
+  box-shadow: 0 2px 7px rgba(31, 42, 68, 0.22);
+}
+
+.lighting-range--brightness {
+  --lighting-track: linear-gradient(
+    90deg,
+    var(--accent) 0%,
+    var(--accent) var(--range-progress, 68%),
+    #e6e9ef var(--range-progress, 68%),
+    #e6e9ef 100%
+  );
+}
+
+.lighting-range--temperature {
+  --lighting-track: linear-gradient(90deg, #f6c981 0%, #f1eee2 50%, #cfe8f5 100%);
+}
+
+.lighting-range:disabled,
+.lighting-card.is-off .lighting-control-label {
+  opacity: 0.36;
+}
+
+.lighting-groups-action {
+  width: 100%;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding: 0 13px;
+  border: 0;
+  border-radius: 9px;
+  color: #22262c;
+  background: #f0f2f5;
+  font-size: 12px;
+  font-weight: 700;
+  appearance: none;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.lighting-groups-action span:last-child {
+  color: #777e89;
+  font-size: 17px;
+  line-height: 1;
+}
+
+.lighting-power-toggle:focus-visible,
+.lighting-range:focus-visible,
+.lighting-groups-action:focus-visible {
+  outline: 2px solid var(--accent-deep);
+  outline-offset: 2px;
 }
 
 .airing-card .icon-badge {

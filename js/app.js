@@ -536,3 +536,59 @@
 
   render();
 })();
+
+
+(() => {
+  "use strict";
+
+  const card = document.querySelector("[data-lighting-card]");
+  const powerButton = document.querySelector("[data-lighting-power]");
+  const powerIcon = document.querySelector("[data-lighting-power-icon]");
+  const brightness = document.querySelector("[data-lighting-brightness]");
+  const brightnessOutput = document.querySelector("[data-lighting-brightness-output]");
+  const temperature = document.querySelector("[data-lighting-temperature]");
+  const temperatureOutput = document.querySelector("[data-lighting-temperature-output]");
+
+  if (!card || !powerButton || !powerIcon || !brightness || !brightnessOutput || !temperature || !temperatureOutput) {
+    return;
+  }
+
+  // WEB-08 demo only. Real DMXWB/MQTT commands are intentionally deferred.
+  let powered = true;
+
+  function temperatureLabel(value) {
+    const numericValue = Number(value);
+    if (numericValue < 34) return "Тёплый";
+    if (numericValue > 66) return "Холодный";
+    return "Нейтральный";
+  }
+
+  function syncBrightnessTrack() {
+    brightness.style.setProperty("--range-progress", `${brightness.value}%`);
+  }
+
+  function render() {
+    powerButton.setAttribute("aria-pressed", String(powered));
+    powerButton.setAttribute("aria-label", powered ? "Выключить освещение" : "Включить освещение");
+    powerIcon.src = powered ? "images/TumblerOn.svg" : "images/TumblerOff.svg";
+
+    brightness.disabled = !powered;
+    temperature.disabled = !powered;
+    card.classList.toggle("is-off", !powered);
+
+    brightnessOutput.textContent = `${brightness.value}%`;
+    temperatureOutput.textContent = temperatureLabel(temperature.value);
+    syncBrightnessTrack();
+  }
+
+  powerButton.addEventListener("click", () => {
+    powered = !powered;
+    render();
+  });
+
+  brightness.addEventListener("input", render);
+  temperature.addEventListener("input", render);
+
+  render();
+})();
+
