@@ -212,108 +212,155 @@ h2 {
   background: var(--accent);
 }
 
-.setpoint-preview {
-  flex: 1 1 auto;
+.setpoint-control {
+  flex: 0 0 236px;
   min-height: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 14px 4px 18px;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 24px 0 2px;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
-.section-label {
-  margin-bottom: 5px;
-  font-size: 13px;
-  font-weight: 650;
-}
 
 .setpoint-value {
-  margin-left: -4px;
-  font-size: 94px;
-  line-height: 0.95;
-  font-weight: 340;
-  letter-spacing: -0.07em;
-}
-
-.setpoint-value span {
-  position: relative;
-  top: -0.68em;
-  margin-left: 7px;
-  font-size: 0.24em;
-  font-weight: 600;
-  letter-spacing: 0;
-  color: #606773;
-}
-
-.temperature-scale {
-  margin-top: 30px;
-}
-
-.scale-track {
-  position: relative;
-  height: 6px;
-  margin: 0 12px 14px;
-  border-radius: 999px;
-  background: #e8ebf1;
-}
-
-.scale-progress {
-  position: absolute;
-  inset: 0 auto 0 0;
-  width: 50%;
-  border-radius: inherit;
-  background: var(--accent);
-}
-
-.scale-thumb {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 23px;
-  height: 23px;
-  transform: translate(-50%, -50%);
-  border: 5px solid #fff;
-  border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 3px 10px rgba(31, 143, 123, 0.22);
-}
-
-.scale-labels {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  color: #9297a1;
-  font-size: 12px;
-  font-weight: 650;
+  min-width: 64px;
+  color: #000;
+  font-size: 34px;
+  line-height: 36px;
+  font-weight: 560;
+  letter-spacing: -0.035em;
   text-align: center;
   font-variant-numeric: tabular-nums;
+  margin-bottom: 8px;
 }
 
-.scale-labels .is-selected {
-  color: var(--text);
+.setpoint-pointer {
+  width: 0;
+  height: 0;
+  margin-top: 0;
+  border-left: 9px solid transparent;
+  border-right: 9px solid transparent;
+  border-top: 13px solid #000;
+}
+
+.temperature-wheel {
+  position: relative;
+  width: 320px;
+  height: 144px;
+  margin-top: 4px;
+  overflow: hidden;
+  cursor: ew-resize;
+  touch-action: none;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+.temperature-wheel:focus-visible {
+  border-radius: 14px;
+  box-shadow: inset 0 0 0 2px rgba(71, 214, 188, 0.72);
+}
+
+.wheel-cylinder {
+  position: absolute;
+  inset: 0;
+}
+
+.wheel-tick {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  width: 1px;
+  height: 126px;
+  will-change: transform, opacity;
+  transform-origin: 50% 50%;
+  pointer-events: none;
+}
+
+.wheel-tick__line {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 66px;
+  transform: translateX(-50%);
+  border-radius: 1px;
+  background: #111;
+}
+
+.wheel-tick--major .wheel-tick__line {
+  width: 4px;
+  height: 86px;
+  border-radius: 2px;
+  background: #050505;
+}
+
+.wheel-tick__label {
+  position: absolute;
+  top: 92px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #1d1d1d;
+  font-size: 19px;
+  line-height: 23px;
+  font-weight: 440;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.wheel-edge {
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  bottom: 0;
+  width: 42px;
+  pointer-events: none;
+}
+
+.wheel-edge--left {
+  left: 0;
+  background: linear-gradient(90deg, #fff 12%, rgba(255, 255, 255, 0.82) 42%, rgba(255, 255, 255, 0));
+}
+
+.wheel-edge--right {
+  right: 0;
+  background: linear-gradient(270deg, #fff 12%, rgba(255, 255, 255, 0.82) 42%, rgba(255, 255, 255, 0));
+}
+
+.temperature-wheel.is-dragging {
+  cursor: grabbing;
 }
 
 .metrics {
+  flex: 1 1 auto;
+  min-height: 0;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, minmax(0, 1fr));
   border-top: 1px solid var(--line);
 }
 
 .metric {
   min-width: 0;
-  padding: 20px 10px 2px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 11px 4px;
 }
 
 .metric + .metric {
-  padding-left: 13px;
-  border-left: 1px solid var(--line);
+  border-top: 1px solid var(--line);
 }
 
 .metric-value {
   white-space: nowrap;
-  font-size: 31px;
-  line-height: 1;
-  font-weight: 570;
-  letter-spacing: -0.035em;
+  font-size: 44px;
+  line-height: 0.96;
+  font-weight: 500;
+  letter-spacing: -0.045em;
   font-variant-numeric: tabular-nums;
 }
 
@@ -326,8 +373,9 @@ h2 {
 }
 
 .metric-label {
-  margin-top: 8px;
-  font-size: 11px;
+  order: -1;
+  margin: 0 0 7px;
+  font-size: 12px;
   font-weight: 650;
 }
 

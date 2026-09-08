@@ -34,29 +34,28 @@
         <div class="card-head">
           <div>
             <p class="eyebrow">Комфорт в помещении</p>
-            <h2 id="climate-title">Климат</h2>
+            <h2 id="climate-title">Уставка температуры</h2>
           </div>
-          <div class="state-chip state-chip--active">AUTO</div>
         </div>
 
-        <div class="setpoint-preview" aria-label="Предварительный вид температурной уставки">
-          <p class="section-label">Уставка температуры</p>
-          <div class="setpoint-value">21<span>°C</span></div>
+        <div class="setpoint-control" id="temperature-setpoint">
+          <output class="setpoint-value" id="setpoint-value" for="temperature-wheel">21</output>
+          <div class="setpoint-pointer" aria-hidden="true"></div>
 
-          <div class="temperature-scale" aria-hidden="true">
-            <div class="scale-track">
-              <div class="scale-progress"></div>
-              <div class="scale-thumb"></div>
-            </div>
-            <div class="scale-labels">
-              <span>18</span>
-              <span>19</span>
-              <span>20</span>
-              <span class="is-selected">21</span>
-              <span>22</span>
-              <span>23</span>
-              <span>24</span>
-            </div>
+          <div
+            class="temperature-wheel"
+            id="temperature-wheel"
+            role="slider"
+            tabindex="0"
+            aria-label="Уставка температуры"
+            aria-valuemin="18"
+            aria-valuemax="28"
+            aria-valuenow="21"
+            aria-valuetext="21 градусов"
+          >
+            <div class="wheel-cylinder" data-wheel-cylinder aria-hidden="true"></div>
+            <div class="wheel-edge wheel-edge--left" aria-hidden="true"></div>
+            <div class="wheel-edge wheel-edge--right" aria-hidden="true"></div>
           </div>
         </div>
 
@@ -176,5 +175,6 @@
       </section>
     </main>
   </div>
+  <script src="js/app.js" defer></script>
 </body>
 </html>
