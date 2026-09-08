@@ -334,6 +334,8 @@
               <strong data-lighting-selection-title>Все светильники</strong>
             </div>
 
+            <button class="lighting-group-reset" type="button" data-lighting-group-reset aria-label="Сбросить настройки света">Сброс</button>
+
             <button class="lighting-group-power" type="button" data-lighting-group-power aria-label="Выключить выбранную группу" aria-pressed="true">
               <img src="images/TumblerOn.svg" alt="" aria-hidden="true" data-lighting-group-power-icon>
             </button>
@@ -363,6 +365,60 @@
                 <button type="button" data-lighting-group-temperature-plus aria-label="Сделать свет теплее">+</button>
               </div>
             </div>
+
+            <div class="lighting-group-slider-block lighting-group-slider-block--red">
+              <div class="lighting-group-slider-label">
+                <span>R</span>
+                <output data-lighting-group-red-output>255</output>
+              </div>
+              <div class="lighting-group-slider-row">
+                <button type="button" data-lighting-group-red-minus aria-label="Уменьшить красный канал">−</button>
+                <input class="lighting-group-range lighting-group-range--red" type="range" min="0" max="255" step="1" value="255" data-lighting-group-red aria-label="Красный канал выбранной группы">
+                <button type="button" data-lighting-group-red-plus aria-label="Увеличить красный канал">+</button>
+              </div>
+            </div>
+
+            <div class="lighting-group-slider-block lighting-group-slider-block--green">
+              <div class="lighting-group-slider-label">
+                <span>G</span>
+                <output data-lighting-group-green-output>255</output>
+              </div>
+              <div class="lighting-group-slider-row">
+                <button type="button" data-lighting-group-green-minus aria-label="Уменьшить зелёный канал">−</button>
+                <input class="lighting-group-range lighting-group-range--green" type="range" min="0" max="255" step="1" value="255" data-lighting-group-green aria-label="Зелёный канал выбранной группы">
+                <button type="button" data-lighting-group-green-plus aria-label="Увеличить зелёный канал">+</button>
+              </div>
+            </div>
+
+            <div class="lighting-group-slider-block lighting-group-slider-block--blue">
+              <div class="lighting-group-slider-label">
+                <span>B</span>
+                <output data-lighting-group-blue-output>255</output>
+              </div>
+              <div class="lighting-group-slider-row">
+                <button type="button" data-lighting-group-blue-minus aria-label="Уменьшить синий канал">−</button>
+                <input class="lighting-group-range lighting-group-range--blue" type="range" min="0" max="255" step="1" value="255" data-lighting-group-blue aria-label="Синий канал выбранной группы">
+                <button type="button" data-lighting-group-blue-plus aria-label="Увеличить синий канал">+</button>
+              </div>
+            </div>
+
+            <div class="lighting-group-color-block">
+              <div class="lighting-group-color-label">
+                <span>Цвет</span>
+                <span class="lighting-group-color-swatch" data-lighting-group-color-swatch aria-hidden="true"></span>
+              </div>
+              <div
+                class="lighting-group-color-wheel"
+                data-lighting-group-color-wheel
+                role="slider"
+                tabindex="0"
+                aria-label="Выбор цвета выбранной группы"
+                aria-valuetext="Белый"
+              >
+                <span class="lighting-group-color-marker" data-lighting-group-color-marker aria-hidden="true"></span>
+              </div>
+            </div>
+
           </div>
         </aside>
       </div>
