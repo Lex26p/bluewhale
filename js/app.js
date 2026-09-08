@@ -558,8 +558,8 @@
 
   function temperatureLabel(value) {
     const numericValue = Number(value);
-    if (numericValue < 34) return "Тёплый";
-    if (numericValue > 66) return "Холодный";
+    if (numericValue < 34) return "Холодный";
+    if (numericValue > 66) return "Тёплый";
     return "Нейтральный";
   }
 

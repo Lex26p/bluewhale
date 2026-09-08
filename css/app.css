@@ -588,7 +588,7 @@ h2 {
 }
 
 .lighting-range--temperature {
-  --lighting-track: linear-gradient(90deg, #f6c981 0%, #f1eee2 50%, #cfe8f5 100%);
+  --lighting-track: linear-gradient(90deg, #cfe8f5 0%, #f1eee2 50%, #f6c981 100%);
 }
 
 .lighting-range:disabled,

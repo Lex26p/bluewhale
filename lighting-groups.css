@@ -1,0 +1,222 @@
+/* WEB-09A: lighting group map and selection only. */
+.lighting-groups-screen[hidden] {
+  display: none;
+}
+
+.lighting-groups-screen {
+  position: absolute;
+  z-index: 55;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 14px 12px;
+  background: var(--bg);
+}
+
+.lighting-groups-header {
+  flex: 0 0 58px;
+  display: grid;
+  grid-template-columns: 48px 1fr auto;
+  align-items: center;
+  gap: 12px;
+}
+
+.lighting-groups-back {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 13px;
+  color: var(--text);
+  background: #fff;
+  box-shadow: var(--shadow);
+  font-size: 28px;
+  line-height: 1;
+  appearance: none;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.lighting-groups-selection {
+  min-width: 190px;
+  min-height: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 5px 12px;
+  border-radius: 13px;
+  background: #fff;
+  box-shadow: var(--shadow);
+}
+
+.lighting-groups-selection strong {
+  color: #303640;
+  font-size: 12px;
+  line-height: 1.15;
+}
+
+.lighting-groups-selection span {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 650;
+  line-height: 1.1;
+}
+
+.lighting-groups-map {
+  position: relative;
+  flex: 0 0 660px;
+  width: 920px;
+  height: 660px;
+  align-self: center;
+  overflow: hidden;
+  border: 1px solid rgba(26, 31, 43, 0.06);
+  border-radius: 20px;
+  background-color: #e9edf3;
+  background-image: url("../images/fancoil-layout.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+  box-shadow: var(--shadow);
+}
+
+.lighting-aggregate-row {
+  position: absolute;
+  z-index: 20;
+  top: 14px;
+  left: 50%;
+  display: flex;
+  gap: 8px;
+  padding: 6px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 6px 18px rgba(31, 42, 68, 0.11);
+  transform: translateX(-50%);
+}
+
+.lighting-aggregate-button {
+  min-width: 116px;
+  height: 42px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 10px;
+  color: #4e5560;
+  background: #eef1f5;
+  font-size: 12px;
+  font-weight: 750;
+  appearance: none;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.lighting-aggregate-button.is-active {
+  color: #163f37;
+  background: var(--accent);
+}
+
+.lighting-zone {
+  position: absolute;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2px;
+  padding: 0;
+  border: 2px solid rgba(79, 90, 104, 0.28);
+  color: #303640;
+  background: rgba(255, 255, 255, 0.43);
+  box-shadow: 0 3px 10px rgba(31, 42, 68, 0.06);
+  appearance: none;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.lighting-zone--linear {
+  border-radius: 12px;
+}
+
+.lighting-zone--strip {
+  z-index: 5;
+  padding: 4px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.36);
+}
+
+.lighting-zone.is-related {
+  border-color: rgba(31, 143, 123, 0.55);
+  background: rgba(71, 214, 188, 0.22);
+}
+
+.lighting-zone.is-selected {
+  z-index: 10;
+  border-color: var(--accent-deep);
+  background: rgba(71, 214, 188, 0.48);
+  box-shadow: 0 7px 18px rgba(31, 143, 123, 0.2);
+}
+
+.lighting-zone--strip.is-selected {
+  z-index: 10;
+}
+
+.lighting-zone__number {
+  min-width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+  font-size: 13px;
+  font-weight: 820;
+  line-height: 1;
+}
+
+.lighting-zone__detail {
+  padding: 2px 5px;
+  border-radius: 999px;
+  color: #555d68;
+  background: rgba(255, 255, 255, 0.82);
+  font-size: 9px;
+  font-weight: 720;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+/*
+ * Approximate WEB-09A group placement from the user's lighting plan.
+ * These are intentionally simple group zones, not exact luminaire geometry.
+ * Groups are adjacent and must not be nested inside the LED-strip groups.
+ */
+
+/* Fixtures 1 and 2 run side-by-side across the upper part of the hall. */
+.lighting-zone--1  { top: 126px; left: 24px;  width: 458px; height: 54px; }
+.lighting-zone--2  { top: 126px; left: 528px; width: 368px; height: 54px; }
+
+/* Left wall linear group, then alternating linear / LED-strip zones across the hall. */
+.lighting-zone--3  { top: 205px; left: 16px;  width: 108px; height: 420px; }
+.lighting-zone--4  { top: 200px; left: 140px; width: 48px;  height: 190px; }
+
+.lighting-zone--5  { top: 190px; left: 205px; width: 118px; height: 440px; }
+.lighting-zone--6  { top: 198px; left: 337px; width: 48px;  height: 195px; }
+
+.lighting-zone--7  { top: 205px; left: 397px; width: 105px; height: 420px; }
+.lighting-zone--8  { top: 198px; left: 514px; width: 48px;  height: 195px; }
+
+.lighting-zone--9  { top: 190px; left: 575px; width: 115px; height: 440px; }
+.lighting-zone--10 { top: 198px; left: 704px; width: 48px;  height: 195px; }
+
+.lighting-zone--11 { top: 205px; left: 764px; width: 92px;  height: 420px; }
+.lighting-zone--12 { top: 198px; left: 868px; width: 40px;  height: 195px; }
+
+.lighting-groups-back:focus-visible,
+.lighting-aggregate-button:focus-visible,
+.lighting-zone:focus-visible {
+  outline: 3px solid var(--accent-deep);
+  outline-offset: 3px;
+}
