@@ -247,3 +247,57 @@
 
   render();
 })();
+
+
+(() => {
+  "use strict";
+
+  const powerButton = document.querySelector("[data-ventilation-power]");
+  const powerIcon = document.querySelector("[data-ventilation-power-icon]");
+  const speedGroup = document.querySelector("[data-ventilation-speed]");
+  const factual = document.querySelector("[data-ventilation-fact]");
+
+  if (!powerButton || !powerIcon || !speedGroup || !factual) {
+    return;
+  }
+
+  // WEB-06 demo only. Real WB/Modbus/MQTT commands are intentionally deferred.
+  let powered = true;
+  let selectedSpeed = "auto";
+  let factualSpeed = "2";
+  const speedButtons = Array.from(speedGroup.querySelectorAll("[data-value]"));
+
+  function render() {
+    powerButton.setAttribute("aria-pressed", String(powered));
+    powerButton.setAttribute("aria-label", powered ? "Выключить вентиляцию" : "Включить вентиляцию");
+    powerIcon.src = powered ? "images/TumblerOn.svg" : "images/TumblerOff.svg";
+
+    factual.textContent = powered ? factualSpeed : "—";
+    factual.parentElement?.classList.toggle("is-off", !powered);
+
+    for (const button of speedButtons) {
+      const active = button.dataset.value === selectedSpeed;
+      button.classList.toggle("is-active", active);
+      button.setAttribute("aria-pressed", String(active));
+      button.disabled = !powered;
+    }
+  }
+
+  powerButton.addEventListener("click", () => {
+    powered = !powered;
+    render();
+  });
+
+  speedGroup.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-value]");
+    if (!button || !speedGroup.contains(button) || !powered) {
+      return;
+    }
+
+    selectedSpeed = button.dataset.value;
+    factualSpeed = selectedSpeed === "auto" ? "2" : selectedSpeed;
+    render();
+  });
+
+  render();
+})();

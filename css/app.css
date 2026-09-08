@@ -629,6 +629,116 @@ h2 {
   line-height: 1;
 }
 
+/* WEB-06: ventilation controls. */
+.ventilation-card {
+  padding: 24px;
+}
+
+.ventilation-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.ventilation-power-toggle {
+  flex: 0 0 auto;
+  width: 54px;
+  height: 29px;
+  margin-top: 2px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  appearance: none;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.ventilation-power-toggle img {
+  display: block;
+  width: 54px;
+  height: 29px;
+  pointer-events: none;
+}
+
+.ventilation-fact {
+  min-height: 24px;
+  display: flex;
+  align-items: baseline;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.15;
+}
+
+.ventilation-fact strong {
+  color: var(--accent-deep);
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.ventilation-fact.is-off strong {
+  color: var(--muted);
+}
+
+.ventilation-control-group {
+  margin-top: 14px;
+}
+
+.ventilation-control-label {
+  margin-bottom: 6px;
+  color: #707682;
+  font-size: 11px;
+  font-weight: 650;
+}
+
+.ventilation-control-row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0;
+}
+
+.ventilation-control-button {
+  width: 50px;
+  height: 50px;
+  flex: 0 0 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 1px solid rgba(180, 184, 204, 0.35);
+  border-radius: 8px;
+  color: #050607;
+  background: #fff;
+  appearance: none;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.ventilation-control-button img {
+  width: 40px;
+  height: 40px;
+  pointer-events: none;
+}
+
+.ventilation-control-button.is-active {
+  background: var(--accent);
+}
+
+.ventilation-control-button:disabled {
+  opacity: 0.32;
+}
+
+.ventilation-power-toggle:focus-visible,
+.ventilation-control-button:focus-visible {
+  outline: 2px solid var(--accent-deep);
+  outline-offset: 2px;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

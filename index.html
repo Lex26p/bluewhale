@@ -142,28 +142,37 @@
           </button>
         </article>
 
-        <article class="card system-card">
-          <div class="system-card__top">
-            <div class="icon-badge" aria-hidden="true">
-              <svg viewBox="0 0 24 24">
-                <path d="M3 7.5h10.5c2.7 0 3.4-3.6 1-4.4-1.4-.5-2.8.4-2.8 1.9" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
-                <path d="M3 12h15c3.1 0 3.8 4.1 1.1 5-1.6.5-3.2-.5-3.2-2.1" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
-                <path d="M3 16.5h7.2" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
-              </svg>
+        <article class="card system-card ventilation-card" aria-labelledby="ventilation-title">
+          <div class="ventilation-head">
+            <div>
+              <p class="eyebrow">Воздухообмен</p>
+              <h2 id="ventilation-title">Вентиляция</h2>
             </div>
-            <div class="state-chip state-chip--active">AUTO</div>
+            <button class="ventilation-power-toggle" type="button" data-ventilation-power aria-label="Выключить вентиляцию" aria-pressed="true">
+              <img src="images/TumblerOn.svg" alt="" aria-hidden="true" data-ventilation-power-icon>
+            </button>
           </div>
-          <div class="system-card__content">
-            <p class="eyebrow">Воздухообмен</p>
-            <h2>Вентиляция</h2>
-            <div class="summary-line">
-              <strong>2</strong>
-              <span>скорость</span>
+
+          <div class="ventilation-fact" aria-live="polite">
+            <span>Факт. скорость <strong data-ventilation-fact>2</strong></span>
+          </div>
+
+          <div class="ventilation-control-group">
+            <div class="ventilation-control-label">Уставка скорости</div>
+            <div class="ventilation-control-row" role="group" aria-label="Скорость вентиляции" data-ventilation-speed>
+              <button class="ventilation-control-button" type="button" data-value="1" aria-label="Скорость 1" aria-pressed="false">
+                <img src="images/vent-low.svg" alt="" aria-hidden="true">
+              </button>
+              <button class="ventilation-control-button" type="button" data-value="2" aria-label="Скорость 2" aria-pressed="false">
+                <img src="images/vent-mid.svg" alt="" aria-hidden="true">
+              </button>
+              <button class="ventilation-control-button" type="button" data-value="3" aria-label="Скорость 3" aria-pressed="false">
+                <img src="images/vent-max.svg" alt="" aria-hidden="true">
+              </button>
+              <button class="ventilation-control-button is-active" type="button" data-value="auto" aria-label="Автоматическая скорость" aria-pressed="true">
+                <img src="images/AUT.svg" alt="" aria-hidden="true">
+              </button>
             </div>
-          </div>
-          <div class="system-card__footer">
-            <span>Нормальный режим</span>
-            <span class="footer-arrow" aria-hidden="true">→</span>
           </div>
         </article>
 
