@@ -7,9 +7,19 @@
   const zones = Array.from(document.querySelectorAll("[data-lighting-group]"));
   const aggregateButtons = Array.from(document.querySelectorAll("[data-lighting-aggregate]"));
   const titleOutput = document.querySelector("[data-lighting-selection-title]");
-  const detailOutput = document.querySelector("[data-lighting-selection-detail]");
+  const groupPower = document.querySelector("[data-lighting-group-power]");
+  const groupPowerIcon = document.querySelector("[data-lighting-group-power-icon]");
+  const groupControls = document.querySelector(".lighting-group-controls");
+  const brightness = document.querySelector("[data-lighting-group-brightness]");
+  const brightnessOutput = document.querySelector("[data-lighting-group-brightness-output]");
+  const brightnessMinus = document.querySelector("[data-lighting-group-brightness-minus]");
+  const brightnessPlus = document.querySelector("[data-lighting-group-brightness-plus]");
+  const temperature = document.querySelector("[data-lighting-group-temperature]");
+  const temperatureOutput = document.querySelector("[data-lighting-group-temperature-output]");
+  const temperatureMinus = document.querySelector("[data-lighting-group-temperature-minus]");
+  const temperaturePlus = document.querySelector("[data-lighting-group-temperature-plus]");
 
-  if (!openButton || !closeButton || !screen || zones.length !== 12 || aggregateButtons.length !== 3 || !titleOutput || !detailOutput) {
+  if (!openButton || !closeButton || !screen || zones.length !== 12 || aggregateButtons.length !== 3 || !titleOutput || !groupPower || !groupPowerIcon || !groupControls || !brightness || !brightnessOutput || !brightnessMinus || !brightnessPlus || !temperature || !temperatureOutput || !temperatureMinus || !temperaturePlus) {
     return;
   }
 
@@ -38,6 +48,49 @@
   let selectedKind = "aggregate";
   let selectedValue = "all";
 
+  // WEB-09B demo values only. DMXWB will later be the source of truth for every selected group.
+  const controlStates = new Map();
+
+  function selectionKey() {
+    return `${selectedKind}:${selectedValue}`;
+  }
+
+  function currentControlState() {
+    const key = selectionKey();
+    if (!controlStates.has(key)) {
+      controlStates.set(key, { powered: true, brightness: 68, temperature: 50 });
+    }
+    return controlStates.get(key);
+  }
+
+  function temperatureLabel(value) {
+    if (value < 34) return `Холодный · ${value}`;
+    if (value > 66) return `Тёплый · ${value}`;
+    return `Нейтральный · ${value}`;
+  }
+
+  function renderControls() {
+    const state = currentControlState();
+    groupPower.setAttribute("aria-pressed", String(state.powered));
+    groupPower.setAttribute("aria-label", state.powered ? "Выключить выбранную группу" : "Включить выбранную группу");
+    groupPowerIcon.src = state.powered ? "images/TumblerOn.svg" : "images/TumblerOff.svg";
+
+    brightness.value = String(state.brightness);
+    brightnessOutput.textContent = `${state.brightness}%`;
+    brightness.style.setProperty("--group-range-progress", `${state.brightness}%`);
+
+    temperature.value = String(state.temperature);
+    temperatureOutput.textContent = temperatureLabel(state.temperature);
+
+    groupControls.classList.toggle("is-off", !state.powered);
+    brightness.disabled = !state.powered;
+    brightnessMinus.disabled = !state.powered;
+    brightnessPlus.disabled = !state.powered;
+    temperature.disabled = !state.powered;
+    temperatureMinus.disabled = !state.powered;
+    temperaturePlus.disabled = !state.powered;
+  }
+
   function render() {
     const selectedAggregate = selectedKind === "aggregate" ? selectedValue : null;
 
@@ -61,11 +114,11 @@
 
     if (selectedKind === "group") {
       titleOutput.textContent = groups[selectedValue].title;
-      detailOutput.textContent = groups[selectedValue].detail;
     } else {
       titleOutput.textContent = aggregate[selectedValue].title;
-      detailOutput.textContent = aggregate[selectedValue].detail;
     }
+
+    renderControls();
   }
 
   function openScreen() {
@@ -96,6 +149,32 @@
       render();
     });
   }
+
+  function setBrightness(nextValue) {
+    const state = currentControlState();
+    state.brightness = Math.min(100, Math.max(0, Number(nextValue)));
+    renderControls();
+  }
+
+  function setTemperature(nextValue) {
+    const state = currentControlState();
+    state.temperature = Math.min(100, Math.max(0, Number(nextValue)));
+    renderControls();
+  }
+
+  groupPower.addEventListener("click", () => {
+    const state = currentControlState();
+    state.powered = !state.powered;
+    renderControls();
+  });
+
+  brightness.addEventListener("input", () => setBrightness(brightness.value));
+  brightnessMinus.addEventListener("click", () => setBrightness(currentControlState().brightness - 1));
+  brightnessPlus.addEventListener("click", () => setBrightness(currentControlState().brightness + 1));
+
+  temperature.addEventListener("input", () => setTemperature(temperature.value));
+  temperatureMinus.addEventListener("click", () => setTemperature(currentControlState().temperature - 1));
+  temperaturePlus.addEventListener("click", () => setTemperature(currentControlState().temperature + 1));
 
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && !screen.hidden) {

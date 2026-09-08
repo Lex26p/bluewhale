@@ -304,60 +304,67 @@
           <p class="eyebrow">Освещение по зонам</p>
           <h2 id="lighting-groups-title">Группы освещения</h2>
         </div>
-        <div class="lighting-groups-selection" aria-live="polite">
-          <strong data-lighting-selection-title>Все светильники</strong>
-          <span data-lighting-selection-detail>1–39</span>
-        </div>
       </header>
 
-      <div class="lighting-groups-map" aria-label="План помещения с группами освещения">
-        <div class="lighting-aggregate-row" role="group" aria-label="Общие группы освещения">
-          <button class="lighting-aggregate-button is-active" type="button" data-lighting-aggregate="all" aria-pressed="true">Все</button>
-          <button class="lighting-aggregate-button" type="button" data-lighting-aggregate="linear" aria-pressed="false">Линейные</button>
-          <button class="lighting-aggregate-button" type="button" data-lighting-aggregate="strips" aria-pressed="false">Ленты</button>
+      <div class="lighting-groups-workspace">
+        <div class="lighting-groups-map" aria-label="План помещения с группами освещения">
+          <div class="lighting-aggregate-row" role="group" aria-label="Общие группы освещения">
+            <button class="lighting-aggregate-button is-active" type="button" data-lighting-aggregate="all" aria-pressed="true">Все</button>
+            <button class="lighting-aggregate-button" type="button" data-lighting-aggregate="linear" aria-pressed="false">Линейные</button>
+            <button class="lighting-aggregate-button" type="button" data-lighting-aggregate="strips" aria-pressed="false">Ленты</button>
+          </div>
+
+          <button class="lighting-zone lighting-zone--linear lighting-zone--1" type="button" data-lighting-group="1" aria-pressed="false"><span class="lighting-zone__number">1</span></button>
+          <button class="lighting-zone lighting-zone--linear lighting-zone--2" type="button" data-lighting-group="2" aria-pressed="false"><span class="lighting-zone__number">2</span></button>
+          <button class="lighting-zone lighting-zone--strip lighting-zone--4" type="button" data-lighting-group="4" aria-pressed="false"><span class="lighting-zone__number">4</span></button>
+          <button class="lighting-zone lighting-zone--linear lighting-zone--3" type="button" data-lighting-group="3" aria-pressed="false"><span class="lighting-zone__number">3</span></button>
+          <button class="lighting-zone lighting-zone--strip lighting-zone--6" type="button" data-lighting-group="6" aria-pressed="false"><span class="lighting-zone__number">6</span></button>
+          <button class="lighting-zone lighting-zone--linear lighting-zone--5" type="button" data-lighting-group="5" aria-pressed="false"><span class="lighting-zone__number">5</span></button>
+          <button class="lighting-zone lighting-zone--strip lighting-zone--8" type="button" data-lighting-group="8" aria-pressed="false"><span class="lighting-zone__number">8</span></button>
+          <button class="lighting-zone lighting-zone--linear lighting-zone--7" type="button" data-lighting-group="7" aria-pressed="false"><span class="lighting-zone__number">7</span></button>
+          <button class="lighting-zone lighting-zone--strip lighting-zone--10" type="button" data-lighting-group="10" aria-pressed="false"><span class="lighting-zone__number">10</span></button>
+          <button class="lighting-zone lighting-zone--linear lighting-zone--9" type="button" data-lighting-group="9" aria-pressed="false"><span class="lighting-zone__number">9</span></button>
+          <button class="lighting-zone lighting-zone--strip lighting-zone--12" type="button" data-lighting-group="12" aria-pressed="false"><span class="lighting-zone__number">12</span></button>
+          <button class="lighting-zone lighting-zone--linear lighting-zone--11" type="button" data-lighting-group="11" aria-pressed="false"><span class="lighting-zone__number">11</span></button>
         </div>
 
-        <button class="lighting-zone lighting-zone--linear lighting-zone--1" type="button" data-lighting-group="1" aria-pressed="false">
-          <span class="lighting-zone__number">1</span>
-        </button>
-        <button class="lighting-zone lighting-zone--linear lighting-zone--2" type="button" data-lighting-group="2" aria-pressed="false">
-          <span class="lighting-zone__number">2</span>
-        </button>
+        <aside class="lighting-group-panel" aria-label="Управление выбранной группой">
+          <div class="lighting-group-panel-head">
+            <div class="lighting-group-panel-selection" aria-live="polite">
+              <strong data-lighting-selection-title>Все светильники</strong>
+            </div>
 
-        <button class="lighting-zone lighting-zone--strip lighting-zone--4" type="button" data-lighting-group="4" aria-pressed="false">
-          <span class="lighting-zone__number">4</span>
-        </button>
-        <button class="lighting-zone lighting-zone--linear lighting-zone--3" type="button" data-lighting-group="3" aria-pressed="false">
-          <span class="lighting-zone__number">3</span>
-        </button>
+            <button class="lighting-group-power" type="button" data-lighting-group-power aria-label="Выключить выбранную группу" aria-pressed="true">
+              <img src="images/TumblerOn.svg" alt="" aria-hidden="true" data-lighting-group-power-icon>
+            </button>
+          </div>
 
-        <button class="lighting-zone lighting-zone--strip lighting-zone--6" type="button" data-lighting-group="6" aria-pressed="false">
-          <span class="lighting-zone__number">6</span>
-        </button>
-        <button class="lighting-zone lighting-zone--linear lighting-zone--5" type="button" data-lighting-group="5" aria-pressed="false">
-          <span class="lighting-zone__number">5</span>
-        </button>
+          <div class="lighting-group-controls">
+            <div class="lighting-group-slider-block">
+              <div class="lighting-group-slider-label">
+                <span>Яркость</span>
+                <output data-lighting-group-brightness-output>68%</output>
+              </div>
+              <div class="lighting-group-slider-row">
+                <button type="button" data-lighting-group-brightness-minus aria-label="Уменьшить яркость">−</button>
+                <input class="lighting-group-range lighting-group-range--brightness" type="range" min="0" max="100" step="1" value="68" data-lighting-group-brightness aria-label="Яркость выбранной группы">
+                <button type="button" data-lighting-group-brightness-plus aria-label="Увеличить яркость">+</button>
+              </div>
+            </div>
 
-        <button class="lighting-zone lighting-zone--strip lighting-zone--8" type="button" data-lighting-group="8" aria-pressed="false">
-          <span class="lighting-zone__number">8</span>
-        </button>
-        <button class="lighting-zone lighting-zone--linear lighting-zone--7" type="button" data-lighting-group="7" aria-pressed="false">
-          <span class="lighting-zone__number">7</span>
-        </button>
-
-        <button class="lighting-zone lighting-zone--strip lighting-zone--10" type="button" data-lighting-group="10" aria-pressed="false">
-          <span class="lighting-zone__number">10</span>
-        </button>
-        <button class="lighting-zone lighting-zone--linear lighting-zone--9" type="button" data-lighting-group="9" aria-pressed="false">
-          <span class="lighting-zone__number">9</span>
-        </button>
-
-        <button class="lighting-zone lighting-zone--strip lighting-zone--12" type="button" data-lighting-group="12" aria-pressed="false">
-          <span class="lighting-zone__number">12</span>
-        </button>
-        <button class="lighting-zone lighting-zone--linear lighting-zone--11" type="button" data-lighting-group="11" aria-pressed="false">
-          <span class="lighting-zone__number">11</span>
-        </button>
+            <div class="lighting-group-slider-block">
+              <div class="lighting-group-slider-label">
+                <span>Температура света</span>
+                <output data-lighting-group-temperature-output>Нейтральный · 50</output>
+              </div>
+              <div class="lighting-group-slider-row">
+                <button type="button" data-lighting-group-temperature-minus aria-label="Сделать свет холоднее">−</button>
+                <input class="lighting-group-range lighting-group-range--temperature" type="range" min="0" max="100" step="1" value="50" data-lighting-group-temperature aria-label="Температура света выбранной группы, от холодного к тёплому">
+                <button type="button" data-lighting-group-temperature-plus aria-label="Сделать свет теплее">+</button>
+              </div>
+            </div>
+          </div>
+        </aside>
       </div>
     </section>
   </div>
