@@ -1,0 +1,18 @@
+
+.scene-screen {
+ width: 1024px;
+ padding: 20px;
+ font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+}
+.scenes-grid {
+ display: grid;
+ grid-template-columns: repeat(3, 1fr);
+ gap: 12px;
+}
+.scenes-grid button {
+ height: 52px;
+ white-space: nowrap;
+ overflow: hidden;
+ text-overflow: ellipsis;
+ border-radius: 12px;
+}

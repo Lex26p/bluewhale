@@ -222,16 +222,10 @@
             >
           </div>
 
-          <div class="lighting-main-actions">
-            <button class="lighting-groups-action lighting-scenes-action" type="button" data-lighting-scenes-open aria-label="Открыть сцены освещения">
-              <span>Сцены освещения</span>
-              <span aria-hidden="true">→</span>
-            </button>
-            <button class="lighting-groups-action" type="button" data-lighting-groups-open aria-label="Открыть управление освещением по группам">
-              <span>Управление по группам</span>
-              <span aria-hidden="true">→</span>
-            </button>
-          </div>
+          <button class="lighting-groups-action" type="button" data-lighting-groups-open aria-label="Открыть управление освещением по группам">
+            <span>Управление по группам</span>
+            <span aria-hidden="true">→</span>
+          </button>
         </article>
 
         <article class="card system-card airing-card" aria-labelledby="airing-title" data-airing-card>
@@ -333,6 +327,18 @@
           <button class="lighting-zone lighting-zone--strip lighting-zone--12" type="button" data-lighting-group="12" aria-pressed="false"><span class="lighting-zone__number">12</span></button>
           <button class="lighting-zone lighting-zone--linear lighting-zone--11" type="button" data-lighting-group="11" aria-pressed="false"><span class="lighting-zone__number">11</span></button>
 
+          <div class="lighting-scenes-demo" role="group" aria-label="Сцены освещения">
+            <button class="lighting-scene-button" type="button">Презентация</button>
+            <button class="lighting-scene-button" type="button">Совещание</button>
+            <button class="lighting-scene-button" type="button">Видеоконференция</button>
+            <button class="lighting-scene-button" type="button">Яркий свет</button>
+            <button class="lighting-scene-button" type="button">Тёплый свет</button>
+            <button class="lighting-scene-button" type="button">Холодный свет</button>
+            <button class="lighting-scene-button" type="button">Экран</button>
+            <button class="lighting-scene-button" type="button">Перерыв</button>
+            <button class="lighting-scene-button" type="button">Уборка</button>
+            <button class="lighting-scene-button" type="button">Выключено</button>
+          </div>
         </div>
 
         <aside class="lighting-group-panel" aria-label="Управление выбранной группой">
@@ -430,35 +436,9 @@
         </aside>
       </div>
     </section>
-
-    <section class="lighting-groups-screen lighting-scenes-screen" data-lighting-scenes-screen hidden aria-labelledby="lighting-scenes-title">
-      <header class="lighting-groups-header">
-        <button class="lighting-groups-back" type="button" data-lighting-scenes-close aria-label="Вернуться на главный экран">←</button>
-        <div>
-          <p class="eyebrow">Быстрый запуск</p>
-          <h2 id="lighting-scenes-title">Сцены освещения</h2>
-        </div>
-      </header>
-
-      <div class="lighting-scenes-panel">
-        <div class="lighting-scenes-grid" role="group" aria-label="Доступные сцены освещения">
-          <button class="lighting-scene-button" type="button" data-lighting-scene="1" aria-pressed="false">Презентация</button>
-          <button class="lighting-scene-button" type="button" data-lighting-scene="2" aria-pressed="false">Совещание</button>
-          <button class="lighting-scene-button" type="button" data-lighting-scene="3" aria-pressed="false">Видеоконференция</button>
-          <button class="lighting-scene-button" type="button" data-lighting-scene="4" aria-pressed="false">Яркий свет</button>
-          <button class="lighting-scene-button" type="button" data-lighting-scene="5" aria-pressed="false">Тёплый свет</button>
-          <button class="lighting-scene-button" type="button" data-lighting-scene="6" aria-pressed="false">Холодный свет</button>
-          <button class="lighting-scene-button" type="button" data-lighting-scene="7" aria-pressed="false">Экран</button>
-          <button class="lighting-scene-button" type="button" data-lighting-scene="8" aria-pressed="false">Перерыв</button>
-          <button class="lighting-scene-button" type="button" data-lighting-scene="9" aria-pressed="false">Уборка</button>
-          <button class="lighting-scene-button" type="button" data-lighting-scene="10" aria-pressed="false">Выключено</button>
-        </div>
-      </div>
-    </section>
   </div>
   <script src="js/app.js" defer></script>
   <script src="js/fancoil-layout.js" defer></script>
   <script src="js/lighting-groups.js" defer></script>
-  <script src="js/lighting-scenes.js" defer></script>
 </body>
 </html>
